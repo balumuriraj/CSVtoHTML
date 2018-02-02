@@ -1,0 +1,99 @@
+<html>
+
+<head>
+  <style type="text/css">
+    body {
+      font-family: "Open Sans", sans-serif;
+    }
+
+    table {
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-collapse: collapse;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    table caption {
+      font-weight: bold;
+      margin: .5em 0 .75em;
+    }
+
+    table tr {
+      background: #f8f8f8;
+      border: 1px solid #ddd;
+      padding: .35em;
+    }
+
+    table th,
+    table td {
+      padding: .25em;
+    }
+
+    table th {
+      font-size: .75em;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    table td {
+      font-size: .75em;
+      word-wrap: break-word;
+      /* All browsers since IE 5.5+ */
+      overflow-wrap: break-word;
+    }
+
+
+    table tr:hover {
+      background-color: #ffffff;
+    }
+
+    table tr .pass {
+      background: #2ecc71;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    table tr .fail {
+      background: #e74c3c;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    table tr .ignore {
+      background: #f1c40f;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <caption>PASS: {{pass}}  FAIL: {{fail}}  IGNORE: {{ignore}}  TOTAL: {{total}}</caption>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Class</th>
+        <th>Name</th>
+        <th>Result</th>
+        <th>Exception</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#results}}
+      <tr>
+        <td>{{Category}}</td>
+        <td>{{Class}}</td>
+        <td>{{Name}}</td>
+        <td class={{resultClass}}>{{Result}}</td>
+        <td>{{Exception}}</td>
+      </tr>
+      {{/results}}
+    </tbody>
+  </table>
+</body>
+
+</html>
